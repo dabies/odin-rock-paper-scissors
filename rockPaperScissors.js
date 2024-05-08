@@ -84,9 +84,6 @@ function playGame() {
     }
 }
 
-/*const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();*/
-
 playGame();
 if (humanScore > computerScore) {
     console.log(`Congratulations! You defeated the computer by a score of ${humanScore} to ${computerScore}.`)
