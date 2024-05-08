@@ -24,7 +24,8 @@ function getHumanChoice() {
         case 'scissors':
             return hChoice;
         default:
-            return 'Invalid answer.';
+            alert('Invalid answer.');
+            return console.log('Invalid answer.');
     }
 }
 
@@ -32,43 +33,64 @@ function playRound(computerChoice, humanChoice) {
     if (computerChoice === 'rock') {
         switch(humanChoice){
             case 'rock':
-                return "It's a draw.";
+                alert('Draw. You think like a computer.');
+                return console.log("It's a draw.");
             case 'paper':
                 humanScore++;
-                return 'You win! Paper beats Rock.';
+                alert('You won that round!');
+                return console.log('You win! Paper beats Rock.');
             case 'scissors':
                 computerScore++;
-                return 'You lose. Scissors loses to Rock.';
+                alert('You lost that round.');
+                return console.log('You lose. Scissors loses to Rock.');
         }
 
     } else if (computerChoice === 'paper') {
         switch(humanChoice){
             case 'rock':
                 computerScore++;
-                return 'You lose. Rock is defeated by Paper.';
+                alert('You lost that round.');
+                return console.log('You lose. Rock is defeated by Paper.');
             case 'paper':
-                return "It's a draw."
+                alert('Draw. You think like a computer.');
+                return console.log("It's a draw.");
             case 'scissors':
                 humanScore++;
-                return 'You win! Scissors beats Paper.'
+                alert('You won that round!');
+                return console.log('You win! Scissors beats Paper.');
         }
     } else {
         switch(humanChoice){
             case 'rock':
                 humanScore++;
-                return 'You Win! Rock beats Scissors.';
+                alert('You won this round!');
+                return console.log('You Win! Rock beats Scissors.');
             case 'paper':
                 computerScore++;
-                return 'You lose. Paper is defeated by Scissors.'
+                alert('You lost that round.');
+                return console.log('You lose. Paper is defeated by Scissors.');
             case 'scissors':
-                return "It's a draw."
+                alert('Draw. You think like a computer.');
+                return console.log("It's a draw.");
         }
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    while(humanScore < 3 && computerScore < 3) {
+        let human = getHumanChoice();
+        let comp = getComputerChoice();
+        playRound(comp, human);
+    }
+}
 
-console.log(playRound(computerSelection, humanSelection));
-console.log('You: '+humanScore);
-console.log('Computer: '+computerScore);
+/*const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();*/
+
+playGame();
+if (humanScore > computerScore) {
+    console.log(`Congratulations! You defeated the computer by a score of ${humanScore} to ${computerScore}.`)
+} else {
+    console.log(`You were defeated by our computer overlords by a score of ${humanScore} to ${computerScore}.`)
+}
+
