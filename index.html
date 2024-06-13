@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
     <script src="rockPaperScissors.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: aquamarine;
+        }
+
+        .rock, 
+        .paper,
+        .scissors {
+            border-radius: 20%;
+        }
+
+        .score {
+            border:2px solid blue;
+            padding: 5px;
+            border-radius: 5%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Ready to Rock? Or paper/scissors?</h1>
-    <div class="display"></div>
+    <h1>Ready to Rock? Or paper? Or scissors?</h1>
+    <h3>Can you win 5 rounds before the computer? Click your choice to find out.</h3>
+    <p class="result"></p>
+    <p class="score"></p>
     <div class="buttons">
         <button class="rock">Rock</button>
         <button class="paper">Paper</button>
         <button class="scissors">Scissors</button>
     </div>
-  
 </body>
 </html>
